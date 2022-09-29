@@ -36,4 +36,5 @@ while MIN_PRICE <= price <= MAX_PRICE:
     price *= (1 + price_change)
     print("On day {} price is: ${:,.2f}".format(days_elapsed, price), file=out_file)
 
+
 out_file.close()
