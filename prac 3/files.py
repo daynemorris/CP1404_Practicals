@@ -5,6 +5,7 @@ Dayne Morris
 
 NAME_FILE = "name_file.txt"
 
+
 # User enters name and is stored in the file "name_file.txt"
 name_file = open(NAME_FILE, 'w')
 name = str(input("Enter your name: "))
