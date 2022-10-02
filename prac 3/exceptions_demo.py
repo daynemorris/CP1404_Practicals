@@ -1,5 +1,11 @@
 """
-CP1404 - Exceptions Demo
+CP1404 - Practical
+Answer the following questions:
+1. When will a ValueError occur?
+    when the value is != an integer
+2. When will a ZeroDivisionError occur?
+    when the denominator = 0
+3. Could you change the code to avoid the possibility of a ZeroDivisionError?
 Dayne Morris
 """
 
