@@ -28,15 +28,13 @@ print("${:,.2f}".format(price))
 while MIN_PRICE <= price <= MAX_PRICE:
     price_change = 0
     days_elapsed = days_elapsed + 1
-    # generate a random integer of 1 or 2
-    # if it's 1, the price increases, otherwise it decreases
+    # Create a random integer of either 1 or 2
+    # If the integer is a 1, the price increases. In any other case the price decreases
     if random.randint(1, 2) == 1:
-        # generate a random floating-point number
-        # between 0 and MAX_INCREASE
+        # Create a random floating-point number, between 0 and MAX_INCREASE
         price_change = random.uniform(0, MAX_INCREASE)
     else:
-        # generate a random floating-point number
-        # between negative MAX_DECREASE and 0
+        # Create a random floating-point number, between (-) MAX_DECREASE and 0
         price_change = random.uniform(-MAX_DECREASE, 0)
 
     price *= (1 + price_change)
