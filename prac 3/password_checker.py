@@ -1,5 +1,6 @@
 """
 CP1404 - Password Checker
+Password checker "skeleton" code to help you get started
 Dayne Morris
 """
 

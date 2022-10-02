@@ -24,7 +24,7 @@ number2 = int(numbers_file.readline())
 numbers_file.close()
 print(number1 + number2)
 
-# Read all the lines in "numbers.txt" then print them
+# Read all the lines in "numbers.txt" then print them or any numbers of numbers
 total = 0
 numbers_file = open("numbers.txt", 'r')
 for line in numbers_file:
