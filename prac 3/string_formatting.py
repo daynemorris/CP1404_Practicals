@@ -1,7 +1,7 @@
 """
 CP1404
 Prac 3: String Formatting
-Dayne Morris - 2/10/2022
+Dayne Morris
 """
 
 # PART 1: f-string formatting
