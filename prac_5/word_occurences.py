@@ -1,8 +1,7 @@
-
 """
 Word Occurrences
 Estimate: 20 minutes
-Actual: 35 minutes
+Actual: 35 minutes 
 """
 words_to_number = {}
 text = input("Text: ")
