@@ -1,3 +1,9 @@
+"""
+Wimbledon
+Estimate: 50 minutes
+Actual: 1hr 33 minutes
+"""
+
 import csv
 
 FILENAME = "wimbledon.csv"
