@@ -2,7 +2,7 @@
 CP1404/CP5632 Practical - Suggested Solution
 Programming Language client code.
 """
-from prac_06.programming_language import ProgrammingLanguage
+from prac_6.programming_language import ProgrammingLanguage
 
 
 def main():

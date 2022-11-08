@@ -3,7 +3,7 @@ CP1404/CP5632 Practical - Suggested Solution
 Basic manual tests for Guitar class
 """
 
-from prac_06.guitar import Guitar
+from prac_6.guitar import Guitar
 
 
 def main():
