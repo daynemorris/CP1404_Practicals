@@ -1,8 +1,10 @@
 from prac_6.guitar import Guitar
 
+FILENAME = "guitars.csv"
+
 
 def main():
-    """Read file of programming language details, save as objects, display."""
+    """Read file of Guitar details, save as objects, display and save."""
     print("\nList of Guitars:\n")
     guitars = load_guitars()
     for guitar in guitars:
@@ -27,8 +29,9 @@ def main():
 
 
 def load_guitars():
+    """Load file of Guitars as a list of objects."""
     guitars = []
-    in_file = open('guitars.csv', 'r')
+    in_file = open(FILENAME, 'r')
     for line in in_file:
         parts = line.strip().split(',')
         guitar = Guitar(parts[0], parts[1], parts[2])
@@ -38,9 +41,10 @@ def load_guitars():
 
 
 def save_guitars(guitars):
-    out_file = open('guitars1.csv', 'w')
-    for guitar in guitars:
-        out_file.write
+    """Save list of objects as a string to the file."""
+    with open(FILENAME, 'w', encoding="utf-8") as out_file:
+        for guitar in guitars:
+            print(f"{guitar.name},{guitar.year},{guitar.cost}", file=out_file)
 
 
 main()
