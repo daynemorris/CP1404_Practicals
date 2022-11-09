@@ -1,6 +1,6 @@
 import datetime
 
-from prac_06.projects import Project
+from prac_7.projects import Project
 
 FILENAME = 'projects.txt'
 HEADER = 'Name	Start Date	Priority	Cost Estimate	Completion Percentage'
@@ -23,9 +23,9 @@ def main():
         elif choice == "F":
             pass
         elif choice == "A":
-            pass
+            add_project(projects)
         elif choice == "U":
-            pass
+            update_projects(projects)
         else:
             print("Invalid menu choice")
         print(MENU)
@@ -42,7 +42,7 @@ def load_projects(filename):
         for line in in_file:
             parts = line.strip().split('\t')
             # start_date = datetime.datetime.strptime()
-            project = Project(parts[0], parts[1], parts[2], parts[3], parts[4])
+            project = Project(parts[0], parts[1], parts[2], parts[3], int(parts[4]))
             projects.append(project)
     return projects
 
@@ -59,15 +59,48 @@ def save_projects(projects, filename):
 def display(projects):
     """Display in two groups: complete projects and incomplete projects."""
     print("Incomplete Projects: ")
-    incomplete_projects = [project for project in projects if projects.is_]
+    incomplete_projects = [project for project in projects if not project.is_complete()]
     incomplete_projects.sort()
     for project in incomplete_projects:
         print(" ", project)
     print("Complete Projects: ")
-    complete_projects = [project for project in projects if projects == 100]
+    complete_projects = [project for project in projects if project.is_complete()]
     complete_projects.sort()
     for project in complete_projects:
         print(" ", project)
+
+
+def add_project(projects):
+    print("Let's add a new project")
+    for project in projects:
+        name = input("Name: ")
+        project.name = name
+        start_date = input("Start date (dd/mm/yy): ")
+        project.start_date = start_date
+        priority = input("Priority: ")
+        project.priority = priority
+        cost_estimate = input("Cost estimate: ")
+        project.cost_estimate = cost_estimate
+        priority = input("Percent complete: ")
+        project.priority = priority
+
+
+def update_projects(projects):
+    for i, project in enumerate(projects):
+        print(i, project)
+    index = int(input("Project choice: "))
+    project = projects[index]
+    print(project)
+    try:
+        percent_complete = int(input("New Percentage: "))
+        project.percent_complete = percent_complete
+    except ValueError:
+        pass
+    try:
+        priority = int(input("New Priority: "))
+        project.priority = priority
+    except ValueError:
+        pass
 
 
 if __name__ == '__main__':
