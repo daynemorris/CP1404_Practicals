@@ -1,6 +1,6 @@
 import datetime
 
-from prac_7.projects import Project
+from prac_7.project import Project
 
 FILENAME = 'projects.txt'
 HEADER = 'Name	Start Date	Priority	Cost Estimate	Completion Percentage'
