@@ -8,6 +8,7 @@ MENU = "- (L)oad projects \n- (S)ave projects \n- (D)isplay projects \n- (F)ilte
 
 
 def main():
+    """Load, manage, and save projects from filename."""
     projects = load_projects(FILENAME)
     print(MENU)
     choice = input(">>> ").upper()
@@ -21,7 +22,7 @@ def main():
         elif choice == "D":
             display(projects)
         elif choice == "F":
-            pass
+            filter_projects(projects)
         elif choice == "A":
             add_project(projects)
         elif choice == "U":
@@ -35,20 +36,19 @@ def main():
 
 
 def load_projects(filename):
-    """Load projects from tab-delimited"""
+    """Load projects from file."""
     projects = []
-    with open(FILENAME, 'r', encoding='utf-8') as in_file:
+    with open(filename, 'r', encoding='utf-8') as in_file:
         in_file.readline()
         for line in in_file:
             parts = line.strip().split('\t')
-            # start_date = datetime.datetime.strptime()
             project = Project(parts[0], parts[1], parts[2], parts[3], int(parts[4]))
             projects.append(project)
     return projects
 
 
 def save_projects(projects, filename):
-    """Save projects to tab-delimited text"""
+    """Save projects to file."""
     with open(filename, 'w', encoding="utf-8") as out_file:
         print(HEADER, file=out_file)
         for project in projects:
@@ -71,21 +71,29 @@ def display(projects):
 
 
 def add_project(projects):
+    """Add new project."""
     print("Let's add a new project")
+    name = input("Name: ")
+    start_date = input("Start date (dd/mm/yy): ")
+    priority = input("Priority: ")
+    cost_estimate = input("Cost estimate: $")
+    percent_complete = input("Percent complete: ")
+    project = Project(name, start_date, priority, cost_estimate, percent_complete)
+    projects.append(project)
+
+
+def filter_projects(projects):
+    """Filter projects by start date."""
+    date_string = input("Show projects that start after date (dd/mm/yy): ")
+    date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
     for project in projects:
-        name = input("Name: ")
-        project.name = name
-        start_date = input("Start date (dd/mm/yy): ")
-        project.start_date = start_date
-        priority = input("Priority: ")
-        project.priority = priority
-        cost_estimate = input("Cost estimate: ")
-        project.cost_estimate = cost_estimate
-        priority = input("Percent complete: ")
-        project.priority = priority
+        project_date = datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
+        if project_date > date:
+            print(project)
 
 
 def update_projects(projects):
+    """Update project priority and completion percentage."""
     for i, project in enumerate(projects):
         print(i, project)
     index = int(input("Project choice: "))
