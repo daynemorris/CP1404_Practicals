@@ -1,4 +1,4 @@
-# CP1404(Programming II)
+# CP1404 - Programming II
 ## Summary
 
 Here lies the practicals committed and pushed by Sir Dayne Morris the First. Is the code clean? Maybe Does the code follow best practice? I hope so... 
