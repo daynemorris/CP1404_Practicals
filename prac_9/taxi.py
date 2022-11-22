@@ -1,6 +1,6 @@
 """
 CP1404/CP5632 Practical
-Car class
+Taxi Sub-class
 """
 from prac_9.car import Car
 
