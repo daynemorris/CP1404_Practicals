@@ -6,11 +6,10 @@ def main():
     while user_input != "":
         try:
             page = wikipedia.page(user_input, auto_suggest=False)
-            title = page.title
-            summary = page.summary
             print(f"Page: {page}")
-            print(f"Title: {title}")
-            print(f"Summary: {summary}")
+            print(f"Title: {page.title}")
+            print(f"Summary: {page.summary}")
+            print(f" Page URL: {page.url}")
         except wikipedia.DisambiguationError:
             print("Can't use that keyword")
         user_input = input("Enter Page Title: ")

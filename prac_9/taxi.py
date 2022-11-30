@@ -1,8 +1,9 @@
 """
 CP1404/CP5632 Practical
-Taxi Sub-class
+Taxi Sub-class - Dayne Morris
 """
-from prac_9.car import Car
+
+from prac_6.car import Car
 
 
 class Taxi(Car):
